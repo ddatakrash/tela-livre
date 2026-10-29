@@ -56,6 +56,11 @@ Sem configurar nada, a cidade vem do fuso horário da TV. Para escolher a sua e 
 `config.example.properties` para `config.properties`, preencha a cidade e uma chave gratuita do
 [TMDB](https://www.themoviedb.org/settings/api), e rode `instalar.bat` de novo.
 
+## Abrir direto um app (opcional)
+
+Para a TV ligar direto no YouTube (ou outro app), coloque `startup_app=youtube` no `config.properties` e rode
+`instalar.bat` de novo. Ao apertar Voltar no YouTube, a tela do Tela Livre aparece normalmente.
+
 ## Para remover
 
 Na TV: Apps > Configurações > Tela Livre > Excluir.

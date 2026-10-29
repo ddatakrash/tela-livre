@@ -1260,7 +1260,24 @@
   loadApps(function () {
     renderAll();
     Data.refresh();
+    openStartupApp();
   });
+
+  /** startup_app in config.properties: opened once, when the app starts (the TV turning on), by id or name (part of it). */
+  function openStartupApp() {
+    var want = (CONFIG.startupApp || '').toLowerCase();
+    if (!want) return;
+    var found = null, i, a;
+    for (i = 0; i < apps.length && !found; i++) {   // the exact name first: "youtube" is YouTube, not YouTube Kids
+      a = apps[i];
+      if ((a.title || '').toLowerCase() === want || (a.id || '').toLowerCase() === want) found = a;
+    }
+    for (i = 0; i < apps.length && !found; i++) {
+      a = apps[i];
+      if ((a.id || '').toLowerCase().indexOf(want) >= 0 || (a.title || '').toLowerCase().indexOf(want) >= 0) found = a;
+    }
+    if (found) launcher(found.id, found.title)();
+  }
   setInterval(function () {
     checkNight();
     Data.refresh();
