@@ -64,6 +64,21 @@ Sem configurar nada, a cidade vem do fuso horário da TV. Para escolher a sua e 
 Para a TV ligar direto no YouTube (ou outro app), coloque `startup_app=youtube` no `config.properties` e rode
 `instalar.bat` de novo. Ao apertar Voltar no YouTube, a tela do Tela Livre aparece normalmente.
 
+## TVs LG (webOS)
+
+A pasta `lg/` tem uma versão para LG: fotos de paisagem trocando ao fundo, saudação, hora, data e clima no alto,
+Entradas e Configurações no canto, e embaixo YouTube, Netflix, Disney+, Prime Video e Todos os apps. A cidade e os
+apps de baixo ficam em `lg/config.json`; para usar suas próprias fotos, crie a pasta `fundos/` com elas.
+
+1. Na TV, abra a LG Content Store e instale o app **Developer Mode**. Entre com uma conta grátis de
+   [desenvolvedor LG](https://webostv.developer.lge.com), ligue **Dev Mode Status** (a TV reinicia) e depois **Key Server**.
+2. No Mac, dois cliques em `instalar-lg.command` (na primeira vez: botão direito > Abrir). Ele pede o IP da TV e a
+   passphrase que aparece no Developer Mode.
+3. Com o Tela Livre aberto, segure um número do controle para abri-lo com esse número de qualquer lugar.
+
+O Developer Mode dura um tempo limitado: de vez em quando abra o app Developer Mode e aperte **EXTEND**. A LG não deixa
+um app abrir sozinho quando a TV liga. Empacotamento e instalação vêm do [Free My TV](https://github.com/simbasjungles/free-my-tv) (MIT).
+
 ## Para remover
 
 Na TV: Apps > Configurações > Tela Livre > Excluir.

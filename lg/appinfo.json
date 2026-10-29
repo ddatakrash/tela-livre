@@ -1,0 +1,15 @@
+{
+  "id": "io.telalivre.lg",
+  "version": "1.0.0",
+  "vendor": "Tela Livre",
+  "type": "web",
+  "main": "index.html",
+  "title": "Tela Livre",
+  "icon": "icon.png",
+  "largeIcon": "largeIcon.png",
+  "iconColor": "#1C2430",
+  "resolution": "1920x1080",
+  "handlesRelaunch": true,
+  "disableBackHistoryAPI": true,
+  "requiredPermissions": ["applications", "applications.launcher"]
+}

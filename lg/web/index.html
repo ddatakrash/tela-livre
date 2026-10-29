@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920, height=1080">
+<title>Tela Livre</title>
+<link rel="stylesheet" href="lg.css">
+</head>
+<body>
+<div id="stage">
+  <div id="bg"><div class="photo" id="photoA"></div><div class="photo" id="photoB"></div></div>
+  <div id="shade"></div>
+
+  <div id="top">
+    <div id="greeting"></div>
+    <div id="when">
+      <div id="clock"></div>
+      <div id="rule"></div>
+      <div id="date"><span id="weekday"></span><span id="day"></span></div>
+    </div>
+    <div id="weather"><img id="wicon" alt=""><span id="wtemp"></span><span id="wcity"></span></div>
+  </div>
+
+  <div id="corner">
+    <div class="round" id="btnInputs" data-label="Entradas"><img src="symbols/hdmi.png" alt=""></div>
+    <div class="round" id="btnSettings" data-label="Configurações"><img src="symbols/settings.png" alt=""></div>
+  </div>
+  <div id="cornerLabel"></div>
+
+  <div id="dock"></div>
+  <div id="dockLabel"></div>
+
+  <div id="sheet" class="hidden">
+    <div class="panel">
+      <h2 id="sheetTitle"></h2>
+      <div id="sheetGrid"></div>
+    </div>
+  </div>
+  <div id="toast"></div>
+</div>
+<script src="config.js"></script>
+<script src="tv.js"></script>
+<script src="lg.js"></script>
+</body>
+</html>

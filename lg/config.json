@@ -1,0 +1,32 @@
+{
+  "city": "Pindamonhangaba",
+  "latitude": -22.9246,
+  "longitude": -45.4613,
+  "photoSeconds": 60,
+  "dock": [
+    {
+      "id": "youtube.leanback.v4",
+      "title": "YouTube",
+      "logo": "icons/youtube.png",
+      "bg": "#0F0F0F"
+    },
+    {
+      "id": "netflix",
+      "title": "Netflix",
+      "logo": "icons/netflix.svg",
+      "bg": "#000000"
+    },
+    {
+      "id": "com.disney.disneyplus-prod",
+      "title": "Disney+",
+      "logo": "",
+      "bg": "#0E1B4D"
+    },
+    {
+      "id": "amazon",
+      "title": "Prime Video",
+      "logo": "icons/prime.png",
+      "bg": "#1A98FF"
+    }
+  ]
+}

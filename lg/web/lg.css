@@ -1,0 +1,77 @@
+/* Tela Livre para LG: foto de fundo, hora e clima no alto, apps embaixo. 1920x1080, Chromium antigo das TVs. */
+@font-face { font-family: 'Inter'; src: url('fonts/InterVariable.ttf'); font-weight: 100 900; }
+
+html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #10151C; }
+body { font-family: 'Inter', sans-serif; color: #fff; cursor: none; }
+#stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+
+/* Fundo: duas camadas que se revezam, com troca suave */
+#bg, .photo, #shade { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+#bg { background: linear-gradient(160deg, #3B5772 0%, #8FA7BC 55%, #D8E0E6 100%); }
+.photo { background-size: cover; background-position: center; opacity: 0; transition: opacity 2s ease; }
+.photo.on { opacity: 1; }
+/* Escurece só o alto e o pé, para o texto e os apps lerem bem em qualquer foto */
+#shade { background: linear-gradient(180deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.08) 30%, rgba(0,0,0,0) 55%, rgba(0,0,0,.30) 100%); }
+
+/* Hora, data e clima */
+#top { position: absolute; left: 128px; top: 92px; text-shadow: 0 2px 18px rgba(0,0,0,.35); }
+#greeting { font-size: 26px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; opacity: .92; }
+#when { display: flex; align-items: center; margin-top: 18px; }
+#clock { font-size: 150px; font-weight: 300; line-height: 1; letter-spacing: -3px; }
+#rule { width: 2px; height: 96px; background: rgba(255,255,255,.55); margin: 0 40px 0 44px; }
+#date { display: flex; flex-direction: column; font-size: 30px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; line-height: 1.5; opacity: .95; }
+#weather { display: flex; align-items: center; margin-top: 26px; font-size: 32px; font-weight: 500; opacity: 0; transition: opacity .6s; }
+#weather.on { opacity: 1; }
+#wicon { width: 44px; height: 44px; margin-right: 14px; }
+#wtemp { font-weight: 600; margin-right: 18px; }
+#wcity { font-size: 26px; letter-spacing: 3px; text-transform: uppercase; opacity: .85; }
+
+/* Botões redondos do canto */
+#corner { position: absolute; right: 128px; top: 104px; display: flex; }
+.round { width: 96px; height: 96px; border-radius: 48px; margin-left: 28px; display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,.16); border: 2px solid rgba(255,255,255,.28); transition: transform .18s, background .18s, border-color .18s; }
+.round img { width: 44px; height: 44px; }
+.round.focus { transform: scale(1.12); background: rgba(255,255,255,.95); border-color: #fff; }
+.round.focus img { filter: invert(1) brightness(.2); }
+#cornerLabel, #dockLabel { position: absolute; font-size: 26px; font-weight: 600; letter-spacing: 1px; opacity: 0;
+  text-shadow: 0 2px 12px rgba(0,0,0,.5); transition: opacity .2s; white-space: nowrap; }
+#cornerLabel { right: 128px; top: 222px; text-align: right; }
+#cornerLabel.on, #dockLabel.on { opacity: 1; }
+
+/* Apps embaixo, numa faixa de vidro */
+#dock { position: absolute; bottom: 92px; left: 50%; transform: translateX(-50%); display: flex; padding: 22px 26px;
+  border-radius: 40px; background: rgba(255,255,255,.20); border: 2px solid rgba(255,255,255,.30); }
+.tile { width: 250px; height: 140px; margin: 0 13px; border-radius: 24px; display: flex; align-items: center; justify-content: center;
+  overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,.22); transition: transform .18s, box-shadow .18s; position: relative; }
+.tile img.logo { max-width: 70%; max-height: 52%; }
+.tile img.tvicon { height: 100%; }
+.tile .name { font-size: 34px; font-weight: 700; letter-spacing: .5px; }
+.tile.all { background: rgba(20,26,34,.55); }
+.tile.all img { width: 52px; height: 52px; }
+.tile.focus { transform: scale(1.1); box-shadow: 0 0 0 5px #fff, 0 14px 34px rgba(0,0,0,.35); }
+#dockLabel { left: 0; width: 1920px; text-align: center; bottom: 40px; }
+
+/* Folha: todos os apps / entradas */
+#sheet { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: rgba(8,12,18,.80); transition: opacity .25s; }
+#top, #corner, #dock, #dockLabel, #cornerLabel { transition: opacity .25s; }
+#stage.sheetOpen #top, #stage.sheetOpen #corner, #stage.sheetOpen #dock,
+#stage.sheetOpen #dockLabel, #stage.sheetOpen #cornerLabel { opacity: 0; }
+#sheet.hidden { opacity: 0; visibility: hidden; }
+#sheet .panel { position: absolute; left: 128px; right: 128px; top: 110px; bottom: 110px; }
+#sheet h2 { margin: 0 0 40px; font-size: 44px; font-weight: 600; }
+#sheetGrid { display: flex; flex-wrap: wrap; align-content: flex-start; height: 760px; overflow: hidden; }
+#sheetGrid .tile { width: 240px; height: 135px; margin: 0 28px 64px 0; }
+#sheetGrid .tile { overflow: visible; }
+#sheetGrid .tile .cap { display: none; }
+#sheetGrid .tile.hasicon .cap { display: block; }
+#sheetGrid .tile .cap { position: absolute; left: 0; right: 0; bottom: -42px; text-align: center; font-size: 22px; font-weight: 500;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: .8; }
+#sheetGrid .tile.focus .cap { opacity: 1; }
+#sheetGrid .tile.input { background: rgba(255,255,255,.14); flex-direction: column; }
+#sheetGrid .tile.input img { width: 48px; height: 48px; margin-bottom: 10px; }
+#sheetGrid .tile.input .name { font-size: 26px; font-weight: 600; }
+#sheetGrid .tile.input.off { opacity: .45; }
+
+#toast { position: absolute; left: 50%; bottom: 300px; transform: translateX(-50%); padding: 18px 34px; border-radius: 30px;
+  background: rgba(10,14,20,.85); font-size: 26px; opacity: 0; transition: opacity .3s; }
+#toast.on { opacity: 1; }
