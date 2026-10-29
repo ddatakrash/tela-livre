@@ -27,7 +27,7 @@ não faz.
 
 ## Você vai precisar
 
-- Um PC com Windows na mesma rede Wi-Fi da TV (só para instalar)
+- Um PC com Windows ou um Mac na mesma rede Wi-Fi da TV (só para instalar)
 - [Python 3](https://www.python.org/downloads/): na instalação, marque **Add Python to PATH**
 
 ## Instalação
@@ -47,6 +47,9 @@ adaptador que tem "Gateway Padrão" preenchido (algo como 192.168.0.15). Ignore 
 
 **5. Dois cliques em `instalar.bat`.** Se o Windows avisar, **Mais informações > Executar assim mesmo**. Ele pede o IP
 da TV, pede para você criar uma senha (guarde: as atualizações usam a mesma) e manda o app para a TV.
+
+**No Mac:** no lugar do `instalar.bat`, dê dois cliques em `instalar.command`. Na primeira vez o macOS bloqueia:
+clique com o botão direito > **Abrir** > **Abrir**. Para o IP do Mac, veja Ajustes do Sistema > Wi-Fi > Detalhes.
 
 **6. Ligar direto no Tela Livre.** Nas configurações da TV, em Opções da Tela Inicial, ligue **Autorun Last App**.
 
