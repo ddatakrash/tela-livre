@@ -34,8 +34,11 @@ BUILD=""
 
 echo
 echo " [1/4] Preparando a ferramenta de assinatura..."
-python3 -m pip install --user --quiet --disable-pip-version-check cryptography > instalar-log.txt 2>&1 \
-  || python3 -m pip install --user --quiet --break-system-packages cryptography >> instalar-log.txt 2>&1 || erro
+python3 -m pip install --user --quiet --disable-pip-version-check --no-warn-script-location cryptography certifi > instalar-log.txt 2>&1 \
+  || python3 -m pip install --user --quiet --break-system-packages --no-warn-script-location cryptography certifi >> instalar-log.txt 2>&1 || erro
+# O Python do python.org no Mac vem sem certificados: usa os do certifi para baixar os da Tizen.
+SSL_CERT_FILE=$(python3 -c "import certifi; print(certifi.where())" 2>/dev/null)
+[ -n "$SSL_CERT_FILE" ] && export SSL_CERT_FILE
 echo " [2/4] Montando o app..."
 python3 tizen/build.py $BUILD >> instalar-log.txt 2>&1 || erro
 echo " [3/4] Assinando o app."
