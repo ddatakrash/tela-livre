@@ -234,7 +234,7 @@
     else if (k === K.right) move(1, 0);
     else if (k === K.up) move(0, -1);
     else if (k === K.down) move(0, 1);
-    else if (k === K.ok) ok();
+    else if (k === K.ok || k === 415 || k === 405) ok();   // OK, ou Play / botao amarelo (para controle com o OK falhando)
     else if (k === K.back || k === 8 || k === 27) {
       if (st.zone === 'sheet') hideSheet();
       else if (st.zone === 'corner') { st.zone = 'dock'; focus(); }
