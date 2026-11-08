@@ -79,6 +79,13 @@ apps de baixo ficam em `lg/config.json`; para usar suas próprias fotos, crie a 
 O Developer Mode dura um tempo limitado: de vez em quando abra o app Developer Mode e aperte **EXTEND**. A LG não deixa
 um app abrir sozinho quando a TV liga. Empacotamento e instalação vêm do [Free My TV](https://github.com/simbasjungles/free-my-tv) (MIT).
 
+### Jogos antigos (RetroArch) na LG
+
+Com o Developer Mode ligado, dois cliques em `instalar-retroarch-lg.command`. Ele instala o
+[Homebrew Channel](https://github.com/webosbrew/webos-homebrew-channel) e o RetroArch, que reúne emuladores de Atari,
+NES, SNES, Mega Drive, Game Boy, arcade e mais. Pareie um controle Bluetooth na TV, copie seus jogos num pendrive e, no
+RetroArch, vá em **Load Content > /tmp/usb**. Os emuladores de cada console baixam em **Online Updater > Core Downloader**.
+
 ## Para remover
 
 Na TV: Apps > Configurações > Tela Livre > Excluir.
